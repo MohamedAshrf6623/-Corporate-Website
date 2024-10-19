@@ -1,0 +1,39 @@
+﻿@model Course_Result
+@{
+    SelectList CrsOptions = new SelectList(ViewBag.Crs, "CourseId", "Name", ViewBag.CourseId);
+}
+@{
+    SelectList StdOptions = new SelectList(ViewBag.std, "SSN", "Name",ViewBag.SSN);
+}
+<form method="post" asp-action="EditSave" asp-controller="Course_Result">
+    <input type="hidden" value="@Model?.Course_ResultId" name="Course_ResultId" />
+    <div class="form-group">
+        <label asp-for="Degree"></label>
+        <input asp-for="Degree" class="form-control" required>
+        <span asp-validation-for="Degree" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="CourseId"></label>
+        <select class="form-control" asp-for="CourseId" asp-items="@CrsOptions">
+        </select>
+        @* <span asp-validation-for="CourseId" class="text-danger"></span> *@
+    </div>
+    <div>
+        <label asp-for="SSN"></label>
+        <select class="form-control" asp-for="SSN" asp-items="@StdOptions">
+        </select>
+        @* <span asp-validation-for="SSN" class="text-danger"></span> *@
+    </div>
+    <br />
+    <br />
+    <br />
+    <input type="submit" value="Save" class="btn btn-primary" />
+</form>
+<br />
+<a asp-action="GetAll" asp-controller="Course_Result" class="btn btn-dark">Back to list</a>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

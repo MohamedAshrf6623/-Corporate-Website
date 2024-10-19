@@ -1,0 +1,33 @@
+﻿
+<a asp-action="New" asp-controller="Student" class="btn btn-primary btn-lg">New</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var std in Model)
+        {
+            <tr>
+                <th scope="row">1</th>
+                <td>@std.Name</td>
+                <td>@std.Age</td>
+                <td>@std.Address</td>
+                <td>@std.Phone</td>
+                <td>@std.EmailAddress</td>
+                <td> <a asp-action="Edit" asp-controller="Student" asp-route-id="@std.SSN" class="btn btn-outline-info">Edit </a> </td>
+                <td> <a asp-action="Details" asp-controller="Student" asp-route-id="@std.SSN" class="btn btn-outline-secondary">Details </a> </td>
+              @*   <td> <a href="/Student/Delete/@std.SSN" class=" btn btn-outline-danger">Delete </a></td> *@
+                <td> <a asp-action="Delete" asp-controller="Student" asp-route-id="@std.SSN" class="btn btn-outline-danger">Delete </a> </td>
+            </tr>
+        }
+    </tbody>
+</table>

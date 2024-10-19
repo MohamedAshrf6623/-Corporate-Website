@@ -1,0 +1,23 @@
+﻿<a asp-action="New" asp-controller="Department" class="btn btn-primary btn-lg">New</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Manager</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dept in Model)
+        {
+            <tr>
+                <th scope="row">1</th>
+                <td>@dept.Name</td>
+                <td>@dept.Manager</td>
+                <td> <a asp-action="Edit" asp-controller="Department" asp-route-id="@dept.DepartmentId" class="btn btn-outline-info">Edit </a> </td>
+                <td> <a asp-action="Details" asp-controller="Department" asp-route-id="@dept.DepartmentId" class="btn btn-outline-secondary">Details </a> </td>
+                <td> <a asp-action="Delete" asp-controller="Department" asp-route-id="@dept.DepartmentId" class="btn btn-outline-danger">Delete </a> </td>
+            </tr>
+        }
+    </tbody>
+</table>

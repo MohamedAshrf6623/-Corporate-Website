@@ -1,0 +1,27 @@
+﻿
+<a asp-action="New" asp-controller="Course_Result" class="btn btn-primary btn-lg">New</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Degree</th>
+
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Crs in Model)
+        {
+            <tr>
+                <th scope="row">1</th>
+                <td>@Crs.Degree</td>
+
+                <td> <a asp-action="Edit" asp-controller="Course_Result" asp-route-id="@Crs.Course_ResultId" class="btn btn-outline-info">Edit </a> </td>
+                <td> <a asp-action="Details" asp-controller="Course_Result" asp-route-id="@Crs.Course_ResultId" class="btn btn-outline-secondary">Details </a> </td>
+                <td> <a asp-action="Delete" asp-controller="Course_Result" asp-route-id="@Crs.Course_ResultId" class="btn btn-outline-danger">Delete </a> </td>
+            </tr>
+        }
+    </tbody>
+</table>

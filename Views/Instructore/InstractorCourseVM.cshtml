@@ -1,0 +1,16 @@
+﻿@model InstractorCourses
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h1>@Model.Message</h1>
+        <h5 class="card-title" style="color:@Model.Color">@Model.Instructor</h5>
+        <p class="card-text">@Model.Address</p>
+        <a href="#" class="btn btn-primary">@Model.Salary</a>
+        <select>
+            @foreach (var i in Model.courses)
+            {
+                <option>@i.</option>
+            }
+        </select>
+    </div>
+</div>

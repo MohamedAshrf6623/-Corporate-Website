@@ -1,0 +1,32 @@
+﻿<br />
+<a asp-action="New" asp-controller="Instructore" class="btn btn-primary btn-lg">New</a>
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">EmailAddress</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Ins in Model)
+        {
+            <tr>
+                <th scope="row">1</th>
+                <td>@Ins.Name</td>
+                <td>@Ins.Address</td>
+                <td>@Ins.EmailAddress</td>
+@*                 <td><a href="/Instructore/Edit/@Ins.InstructoreId" class="btn btn-outline-info">Edit</a> </td>
+                <td><a href="/Instructore/Details/@Ins.InstructoreId" class="btn btn-outline-secondary">Details</a></td>
+                <td><a href="/Instructore/Delete/@Ins.InstructoreId" class="btn btn-outline-danger">Delete</a></td> *@
+                <td> <a asp-action="Edit" asp-controller="Instructore" asp-route-id="@Ins.InstructoreId" class="btn btn-outline-info">Edit </a> </td>
+                <td> <a asp-action="Details" asp-controller="Instructore" asp-route-id="@Ins.InstructoreId" class="btn btn-outline-secondary">Details </a> </td>
+                <td> <a asp-action="Delete" asp-controller="Instructore" asp-route-id="@Ins.InstructoreId" class="btn btn-outline-danger">Delete </a> </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+﻿@model Department
+
+<form method="post" asp-action="EditSave" asp-controller="Department">
+    <input type="hidden" value="@Model?.DepartmentId" name="DepartmentId" />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" required>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Manager"></label>
+        <input asp-for="Manager" class="form-control" />
+        <span asp-validation-for="Manager" class="text-danger"></span>
+    </div>
+    <br />
+    <br />
+    <br />
+    <input type="submit" value="Save" class="btn btn-primary" />
+</form>
+<br />
+<a asp-action="GetAll" asp-controller="Department" class="btn btn-dark">Back to list</a>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

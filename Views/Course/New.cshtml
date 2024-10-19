@@ -1,0 +1,38 @@
+﻿@model Course
+
+@{
+    SelectList deptoptions = new SelectList(ViewBag.dept, "DepartmentId", "Name");
+}
+<form method="post" asp-action="Save" asp-controller="Course">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Min_Degree"></label>
+        <input asp-for="Min_Degree" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="Degree"></label>
+        <input asp-for="Degree" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="DepartmentId"></label>
+        <select class="form-control" asp-for="DepartmentId" asp-items="@deptoptions">
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+    <br />
+    <br />
+    <input type="submit" value="Save" class="btn btn-primary" />
+
+</form>
+<br />
+<a asp-action="GetAll" asp-controller="Course" class="btn btn-dark">Back to list</a>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
